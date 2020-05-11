@@ -26,9 +26,9 @@ const Item = styled.Text`
   color: ${({ color }) => color || 'white'};
   text-align: center;
   font-family: ${({ fontFamily }) => fontFamily};
-  font-size: ${({ fontSize }) => fontSize};
-  line-height: ${({ lineHeight }) => lineHeight || '0'};
-  letter-spacing: ${({ letterSpacing }) => letterSpacing || '0'};
+  font-size: ${({ fontSize }) => fontSize}px;
+  line-height: ${({ lineHeight }) => lineHeight || '0'}px;
+  letter-spacing: ${({ letterSpacing }) => letterSpacing || '0'}px;
 `;
 
 export default TextItem;

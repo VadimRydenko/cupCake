@@ -17,11 +17,11 @@ const BackgroundVideo = () => {
 
 const VideoItem = styled(Video)`
    position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
     align-items: stretch;
-    bottom: 0;
-    right: 0;
+    bottom: 0px;
+    right: 0px;
 `;
 
 export default BackgroundVideo;

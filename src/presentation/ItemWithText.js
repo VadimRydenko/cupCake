@@ -30,6 +30,7 @@ const ItemWithText = ({
       {isArray(text) ? 
         text.map((item) => (
           <TextItem
+            key={item}
             color={color}
             fontFamily={fontFamily}
             fontSize={fontSize}

@@ -4,7 +4,13 @@ export const colors = {
   descriptionColor: '#383E59',
 };
 
-export const LGColors = {
-  start: 'rgba(255,255,255,0.7)',
-  end: 'rgba(255,255,255,0)',
+export const lGColors = {
+  videoStart: 'rgba(255,255,255,0.7)',
+  videoEnd: 'rgba(255,255,255,0)',
+  buttonStart: '#274CBE',
+  buttonEnd: '#7727BE',
+};
+
+export const container = {
+  marginHorizontal: 48,
 };

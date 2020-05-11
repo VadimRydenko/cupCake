@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
+import { Dimensions, View, TouchableOpacity, Text, Image } from 'react-native';
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
@@ -7,22 +7,21 @@ import { getBottomSpace } from 'react-native-iphone-x-helper';
 
 import MainIcon from './MainIcon';
 import ItemWithText from './ItemWithText';
+import ButtonItem from './ButtonItem';
+import TextInput from './TextInput';
+import TransparentButton from './TransparentButton';
+import AnimatedHeightContainer from './AnimatedHeightContainer';
 
-import { LGColors, colors } from '../core/styleguide';
+import { lGColors, colors, container } from '../core/styleguide';
 
 const { height, width } = Dimensions.get('window');
+
 const TopItem = () => {
   return (
-    <Wrapper colors={[LGColors.start, LGColors.end]}>
+    <Wrapper colors={[lGColors.videoStart, lGColors.videoEnd]}>
       <MainIcon />
-      <ItemWithText
-        itemHeight={29}
-
-        fontFamily="Inter-Medium"
-        fontSize={19}
-        lineHeight={34}
-        letterSpacing={-0.9}
-        text={'Cupcake constructor'}
+      <Image style={{ width: 200, height: 100 }}
+        source={require('../assets/icons/tt.png')}
       />
       <ItemWithText
         itemHeight={102}
@@ -32,36 +31,9 @@ const TopItem = () => {
         letterSpacing={-0.9}
         text={'Make cupcake better for you'}
       />
-      <Button>
-        <TextItem
-          fontFamily="Inter-SemiBold"
-          fontSize={17}
-          lineHeight={24}
-          letterSpacing={-0.2}
-        >
-          {'Login'}
-        </TextItem>
-      </Button>
-      <Button>
-        <TextItem
-          fontFamily="Inter-SemiBold"
-          fontSize={17}
-          lineHeight={24}
-          letterSpacing={-0.2}
-        >
-          {'Password'}
-        </TextItem>
-      </Button>
-      <Button>
-        <TextItem
-          fontFamily="Inter-SemiBold"
-          fontSize={17}
-          lineHeight={24}
-          letterSpacing={-0.2}
-        >
-          {'Try for free'}
-        </TextItem>
-      </Button>
+      <AnimatedHeightContainer>
+      </AnimatedHeightContainer>
+      <ButtonItem />
       <ItemWithText 
         itemHeight={16}
         marginBottom={24}
@@ -82,23 +54,12 @@ const Wrapper = styled(LinearGradient)`
   height: ${height - getStatusBarHeight() - getBottomSpace()};
 `;
 
-const Button = styled.View`
-  align-items: center;
-  justify-content: center;
-  background-color: #007AFF;
-  width: ${width - 48}px;
-  border-radius: 10px;
-  height: 50px;
-  margin: 10px;
-`;
-
-const TextItem = styled.Text`
-  color: ${({ color }) => color || 'white'};
-  text-align: center;
-  font-family: ${({ fontFamily }) => fontFamily};
-  font-size: ${({ fontSize }) => fontSize};
-  line-height: ${({ lineHeight }) => lineHeight || '0'};
-  letter-spacing: ${({ letterSpacing }) => letterSpacing || '0'};
+const TransparentButtonContainer = styled.View`
+  width: ${width - container.marginHorizontal}px;
+  height: 30;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-horizontal: 50px;
 `;
 
 export default TopItem;

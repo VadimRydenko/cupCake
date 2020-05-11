@@ -42,6 +42,6 @@ export default class LottieAnimation extends React.Component {
 }
 
 const AnimatedIcon = styled(Animation)`
-  width: ${({ width }) => (width || 150)};
-  height: ${({ height }) => (height || 80)};
+  width: ${({ width }) => (width || 150)}px;
+  height: ${({ height }) => (height || 80)}px;
 `;

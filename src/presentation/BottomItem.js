@@ -26,6 +26,7 @@ const BottomItem = () => {
         const { animation, header, description, animationWidth, animationHeight } = feature;
         return (
           <ItemWithTopIcon 
+            key={header}
             animation={animation}
             header={header}
             description={description}
@@ -45,7 +46,7 @@ const Wrapper = styled.View`
 `;
 
 const HeaderWrapper = styled.View`
-  margin-top: 40;
+  margin-top: 40px;
   justify-content: center;
   align-items: center;
   margin-bottom: 48px;

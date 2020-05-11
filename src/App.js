@@ -3,15 +3,22 @@ import { ScrollView, SafeAreaView } from 'react-native';
 import BackgroundVideo from './presentation/BackgroundVideo';
 import TopItem from './presentation/TopItem';
 import BottomItem from './presentation/BottomItem';
+import KeyboardAvoid from './presentation/KeyboardAvoid';
 
 const App = () => {
   return (
     <SafeAreaView>
-      <ScrollView bounces={false} contentInsetAdjustmentBehavior="automatic">
-        <BackgroundVideo />
-        <TopItem />
-        <BottomItem />
-      </ScrollView>
+      <KeyboardAvoid>
+        <ScrollView 
+          bounces={false} 
+          contentInsetAdjustmentBehavior="automatic"
+        >
+          <BackgroundVideo />
+          <TopItem />
+          <BottomItem />
+     
+        </ScrollView>
+      </KeyboardAvoid>
     </SafeAreaView>
   );
 };

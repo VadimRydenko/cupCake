@@ -39,16 +39,17 @@ class ImageLoader extends Component {
   }
 }
 
-const MainIcon = () => (
+const MainIcon = (iconName) => (
     <ImageLoader
       style={styles.image}
-      source={require('../assets/icons/cup2.png')}
+      source={require(`../assets/icons/cup2.png`)}
     />
 );
 
 const styles = StyleSheet.create({
   image: {
-    width: 100,
+    marginBottom: -40,
+    width: 150,
     height: 100,
   },
 });
