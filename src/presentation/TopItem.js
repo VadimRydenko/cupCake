@@ -2,33 +2,56 @@ import React from 'react';
 import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
-import { LGColors, colors } from '../core/styleguide';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { getBottomSpace } from 'react-native-iphone-x-helper';
 
 import MainIcon from './MainIcon';
 import ItemWithText from './ItemWithText';
 
-const { width } = Dimensions.get('window');
+import { LGColors, colors } from '../core/styleguide';
+
+const { height, width } = Dimensions.get('window');
 const TopItem = () => {
   return (
     <Wrapper colors={[LGColors.start, LGColors.end]}>
       <MainIcon />
       <ItemWithText
         itemHeight={29}
-        marginTop={12}
+
         fontFamily="Inter-Medium"
         fontSize={19}
-        text={'Homer Premium'}
-      />
-      <ItemWithText
-        itemWidth={300}
-        itemHeight={102}
-        marginTop={68}
-        fontFamily="Inter-SemiBold"
-        fontSize={28}
         lineHeight={34}
         letterSpacing={-0.9}
-        text={'Powerful features. Even better control. Unlimited access.'}
+        text={'Cupcake constructor'}
       />
+      <ItemWithText
+        itemHeight={102}
+        fontFamily="Inter-SemiBold"
+        fontSize={20}
+        lineHeight={34}
+        letterSpacing={-0.9}
+        text={'Make cupcake better for you'}
+      />
+      <Button>
+        <TextItem
+          fontFamily="Inter-SemiBold"
+          fontSize={17}
+          lineHeight={24}
+          letterSpacing={-0.2}
+        >
+          {'Login'}
+        </TextItem>
+      </Button>
+      <Button>
+        <TextItem
+          fontFamily="Inter-SemiBold"
+          fontSize={17}
+          lineHeight={24}
+          letterSpacing={-0.2}
+        >
+          {'Password'}
+        </TextItem>
+      </Button>
       <Button>
         <TextItem
           fontFamily="Inter-SemiBold"
@@ -46,7 +69,7 @@ const TopItem = () => {
         fontFamily="Inter-Regular"
         fontSize={12}
         lineHeight={16}
-        text={'One month free, then 5,9 USD/month'}
+        text={'Terms of use'}
       />
     </Wrapper>
   );
@@ -56,9 +79,8 @@ const Wrapper = styled(LinearGradient)`
   align-items: center;
   flex-direction: column;
   justify-content: flex-end;
-  height: ${width * 1.5};
+  height: ${height - getStatusBarHeight() - getBottomSpace()};
 `;
-/* height: ${height - getStatusBarHeight() - getBottomSpace()}; */
 
 const Button = styled.View`
   align-items: center;
@@ -67,7 +89,7 @@ const Button = styled.View`
   width: ${width - 48}px;
   border-radius: 10px;
   height: 50px;
-  margin: 20px;
+  margin: 10px;
 `;
 
 const TextItem = styled.Text`

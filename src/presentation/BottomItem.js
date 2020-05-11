@@ -23,12 +23,14 @@ const BottomItem = () => {
         />
       </HeaderWrapper>
       {features.map((feature) => {
-        const { icon, header, description } = feature;
+        const { animation, header, description, animationWidth, animationHeight } = feature;
         return (
           <ItemWithTopIcon 
-            icon={icon}
+            animation={animation}
             header={header}
             description={description}
+            animationWidth={animationWidth}
+            animationHeight={animationHeight}
           />
         );
       })}
@@ -46,7 +48,7 @@ const HeaderWrapper = styled.View`
   margin-top: 40;
   justify-content: center;
   align-items: center;
-  margin-bottom: 68px;
+  margin-bottom: 48px;
 `;
 
 export default BottomItem;

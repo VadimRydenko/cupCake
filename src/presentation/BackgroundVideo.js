@@ -5,11 +5,11 @@ import Video from 'react-native-video';
 const BackgroundVideo = () => {
   return (
     <VideoItem
-      source={require('../assets/video/smoke.mp4')}
+      source={require('../assets/video/cupcake.mp4')}
       muted
       repeat
       resizeMode="cover"
-      rate={1.0}
+      rate={0.2}
       ignoreSilentSwitch="obey"
     />
   );
