@@ -16,9 +16,10 @@ const ButtonItem = ({
   lineHeight,
   letterSpacing,
   text,
+  navigation,
 }) => {
   return (
-    <Button>
+    <Button onPress={() => navigation.navigate('Test')}>
       <Gradient
         colors={[lGColors.buttonStart, lGColors.buttonEnd]}
       >
@@ -51,16 +52,5 @@ const Gradient = styled(LinearGradient)`
   height: 50px;
   width: 100%;
 `;
-
-
-
-// const TextItem = styled.Text`
-//   color: ${({ color }) => color || 'white'};
-//   text-align: center;
-//   font-family: ${({ fontFamily }) => fontFamily};
-//   font-size: ${({ fontSize }) => fontSize}px;
-//   line-height: ${({ lineHeight }) => lineHeight || '0'}px;
-//   letter-spacing: ${({ letterSpacing }) => letterSpacing || '0'}px;
-// `;
 
 export default ButtonItem;

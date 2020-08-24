@@ -101,7 +101,7 @@ class AnimatedHeightContainer extends React.Component {
       <AnimatedContainer 
       style={[this.animatedStyle]}
       >
-              <TransparentButtonContainer>
+        <TransparentButtonContainer>
           <TransparentButton text={'Login'} onPress={() => this.toggleAnimation(false)} isSelected={!isOpen}/>
           <TransparentButton text={'Sign Up'} onPress={() => this.toggleAnimation(true)} isSelected={isOpen}/>
         </TransparentButtonContainer>
@@ -120,8 +120,6 @@ class AnimatedHeightContainer extends React.Component {
 }
 
 const AnimatedContainer = styled(Animated.View)`
- /* background-color: red; */
- /* height: 450px; */
  overflow: hidden;
 `;
 

@@ -16,7 +16,7 @@ import { lGColors, colors, container } from '../core/styleguide';
 
 const { height, width } = Dimensions.get('window');
 
-const TopItem = () => {
+const TopItem = ({ navigation }) => {
   return (
     <Wrapper colors={[lGColors.videoStart, lGColors.videoEnd]}>
       <MainIcon />
@@ -31,9 +31,10 @@ const TopItem = () => {
         letterSpacing={-0.9}
         text={'Make cupcake better for you'}
       />
-      <AnimatedHeightContainer>
-      </AnimatedHeightContainer>
-      <ButtonItem />
+      <AnimatedHeightContainer />
+      <ButtonItem 
+        navigation={navigation}
+      />
       <ItemWithText 
         itemHeight={16}
         marginBottom={24}
