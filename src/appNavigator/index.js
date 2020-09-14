@@ -3,12 +3,9 @@ import { connect } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ScrollView, SafeAreaView, View } from 'react-native';
-import BackgroundVideo from '../presentation/BackgroundVideo';
-import TopItem from '../presentation/TopItem';
-import BottomItem from '../presentation/BottomItem';
-import KeyboardAvoid from '../presentation/KeyboardAvoid';
+import { View } from 'react-native';
 
+import LogIn from '../screens/LogIn';
 
 const RootStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -33,24 +30,6 @@ const appNavigator = ({ signIn }) => {
       )}
     </NavigationContainer>
   ); 
-};
-
-const LogIn = () => {
-  return (
-    <SafeAreaView>
-      <KeyboardAvoid>
-        <ScrollView 
-          bounces={false} 
-          contentInsetAdjustmentBehavior="automatic"
-        >
-          <BackgroundVideo />
-          <TopItem />
-          <BottomItem />
-         
-        </ScrollView>
-      </KeyboardAvoid>
-    </SafeAreaView>
-  );
 };
   
 const DetailScreen = () => {

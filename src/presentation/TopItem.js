@@ -1,6 +1,5 @@
 import React from 'react';
-import { Dimensions, View, TouchableOpacity, Text, Image } from 'react-native';
-import { connect } from 'react-redux';
+import { Dimensions, Image } from 'react-native';
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
@@ -9,12 +8,9 @@ import { getBottomSpace } from 'react-native-iphone-x-helper';
 import MainIcon from './MainIcon';
 import ItemWithText from './ItemWithText';
 import ButtonItem from './ButtonItem';
-import TextInput from './TextInput';
-import TransparentButton from './TransparentButton';
 import AnimatedHeightContainer from './AnimatedHeightContainer';
-import { signIn } from '../store/Auth/actions';
 
-import { lGColors, colors, container } from '../core/styleguide';
+import { lGColors, colors, container, fonts } from '../core/styleguide';
 
 const { height, width } = Dimensions.get('window');
 
@@ -58,18 +54,4 @@ const Wrapper = styled(LinearGradient)`
   height: ${height - getStatusBarHeight() - getBottomSpace()};
 `;
 
-const TransparentButtonContainer = styled.View`
-  width: ${width - container.marginHorizontal}px;
-  height: 30;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-horizontal: 50px;
-`;
-
-const mapDispatchToProps = dispatch => {
-  return {
-    signIn: () => dispatch(signIn),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(TopItem);
+export default TopItem;
