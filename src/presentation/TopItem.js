@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dimensions, View, TouchableOpacity, Text, Image } from 'react-native';
+import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
@@ -11,16 +12,18 @@ import ButtonItem from './ButtonItem';
 import TextInput from './TextInput';
 import TransparentButton from './TransparentButton';
 import AnimatedHeightContainer from './AnimatedHeightContainer';
+import { signIn } from '../store/Auth/actions';
 
 import { lGColors, colors, container } from '../core/styleguide';
 
 const { height, width } = Dimensions.get('window');
 
-const TopItem = ({ navigation }) => {
+const TopItem = ({ signIn }) => {
   return (
     <Wrapper colors={[lGColors.videoStart, lGColors.videoEnd]}>
       <MainIcon />
-      <Image style={{ width: 200, height: 100 }}
+      <Image
+        style={{ width: 200, height: 100 }}
         source={require('../assets/icons/tt.png')}
       />
       <ItemWithText
@@ -33,7 +36,7 @@ const TopItem = ({ navigation }) => {
       />
       <AnimatedHeightContainer />
       <ButtonItem 
-        navigation={navigation}
+        onPress={signIn}
       />
       <ItemWithText 
         itemHeight={16}
@@ -63,4 +66,10 @@ const TransparentButtonContainer = styled.View`
   padding-horizontal: 50px;
 `;
 
-export default TopItem;
+const mapDispatchToProps = dispatch => {
+  return {
+    signIn: () => dispatch(signIn),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(TopItem);

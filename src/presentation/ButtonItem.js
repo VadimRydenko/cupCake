@@ -16,10 +16,10 @@ const ButtonItem = ({
   lineHeight,
   letterSpacing,
   text,
-  navigation,
+  onPress,
 }) => {
   return (
-    <Button onPress={() => navigation.navigate('Test')}>
+    <Button onPress={onPress}>
       <Gradient
         colors={[lGColors.buttonStart, lGColors.buttonEnd]}
       >
