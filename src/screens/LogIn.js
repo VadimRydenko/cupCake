@@ -8,21 +8,49 @@ import KeyboardAvoid from '../presentation/KeyboardAvoid';
 import { signIn } from '../store/Auth/actions';
 
 
-const LogIn = ({ signIn }) => {
-  return (
-    <SafeAreaView>
-      <KeyboardAvoid>
-        <ScrollView 
-          bounces={false} 
-          contentInsetAdjustmentBehavior="automatic"
-        >
-          <BackgroundVideo />
-          <TopItem signIn={signIn} />
-          <BottomItem />
-        </ScrollView>
-      </KeyboardAvoid>
-    </SafeAreaView>
-  );
+class LogIn extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      login: '',
+      password: '',
+    };
+  }
+
+  addLogin = (login) => {
+    console.log(login, 'login');
+    this.setState({login})
+  };
+
+  addPassword = (password) => {
+    console.log(password, 'password');
+    this.setState({password})
+  };
+
+  render() {
+    return (
+      <SafeAreaView>
+        <KeyboardAvoid>
+          <ScrollView 
+            bounces={false} 
+            contentInsetAdjustmentBehavior="automatic"
+          >
+            <BackgroundVideo />
+            <TopItem 
+            signIn={this.props.signIn}
+            addLogin={this.addLogin}
+            addPassword={this.addPassword}
+            email={this.state.login}
+            />
+            <BottomItem />
+          </ScrollView>
+        </KeyboardAvoid>
+      </SafeAreaView>
+    );
+  }
+
 };
 
 const mapDispatchToProps = dispatch => {

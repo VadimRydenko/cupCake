@@ -16,6 +16,7 @@ const TextInput = ({
   letterSpacing,
   text,
   placeholder,
+  onChangeText,
 }) => {
   return (
     <Button>
@@ -25,6 +26,7 @@ const TextInput = ({
         fontSize={17}
         letterSpacing={-0.2}
         placeholder={placeholder}
+        onChangeText={onChangeText}
       />
     </Button>
   );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Image, Animated, StyleSheet, View, Dimensions } from 'react-native';
 import styled from 'styled-components/native';
+import { validateEmail } from '../core/func/validation';
 
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -17,9 +18,10 @@ const ButtonItem = ({
   letterSpacing,
   text,
   onPress,
+  email,
 }) => {
   return (
-    <Button onPress={onPress}>
+    <Button onPress={validateEmail}>
       <Gradient
         colors={[lGColors.buttonStart, lGColors.buttonEnd]}
       >
