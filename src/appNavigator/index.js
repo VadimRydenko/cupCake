@@ -1,14 +1,28 @@
 import * as React from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View } from 'react-native';
+import PDFScreen from '../screens/PDFScreen';
 
 import LogIn from '../screens/LogIn';
 
 const RootStack = createStackNavigator();
+
 const Tab = createBottomTabNavigator();
+
+const config = {
+  animation: 'spring',
+  config: {
+    stiffness: 1000,
+    damping: 50,
+    mass: 3,
+    overshootClamping: false,
+    restDisplacementThreshold: 0.01,
+    restSpeedThreshold: 0.01,
+  },
+};
 
 const appNavigator = ({ signIn }) => {
   return (
@@ -22,10 +36,18 @@ const appNavigator = ({ signIn }) => {
       ) : (
         <RootStack.Navigator
           screenOptions={{
+            gestureEnabled: true,
+            gestureDirection: 'vertical',
             headerShown: false,
+            cardStyleInterpolator: CardStyleInterpolators.forRevealFromBottomAndroid,
+            transitionSpec: {
+              open: config,
+              close: config,
+            },
           }}
         >
           <RootStack.Screen name="Home" component={LogIn} />
+          <RootStack.Screen name="PDF" component={PDFScreen} />
         </RootStack.Navigator>
       )}
     </NavigationContainer>

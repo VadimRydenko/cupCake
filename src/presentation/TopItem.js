@@ -1,9 +1,10 @@
 import React from 'react';
-import { Dimensions, Image } from 'react-native';
+import { Dimensions, Image, Text } from 'react-native';
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import MainIcon from './MainIcon';
 import ItemWithText from './ItemWithText';
@@ -14,7 +15,7 @@ import { lGColors, colors, container, fonts } from '../core/styleguide';
 
 const { height, width } = Dimensions.get('window');
 
-const TopItem = ({ signIn, addLogin, addPassword, email }) => {
+const TopItem = ({ signIn, addLogin, addPassword, email, navigation }) => {
   return (
     <Wrapper colors={[lGColors.videoStart, lGColors.videoEnd]}>
       <MainIcon />
@@ -38,15 +39,18 @@ const TopItem = ({ signIn, addLogin, addPassword, email }) => {
         onPress={signIn}
         email={email}
       />
-      <ItemWithText 
-        itemHeight={16}
-        marginBottom={24}
-        color={colors.gray}
-        fontFamily="Inter-Regular"
-        fontSize={12}
-        lineHeight={16}
-        text={'Terms of use'}
-      />
+      <ReadMoreWrapper
+        onPress={() => navigation.navigate('PDF')}
+      >
+        <ItemWithText 
+          itemHeight={16}
+          color={colors.gray}
+          fontFamily="Inter-Regular"
+          fontSize={12}
+          lineHeight={16}
+          text={'Terms of use'}
+        />
+      </ReadMoreWrapper>
     </Wrapper>
   );
 };
@@ -56,6 +60,13 @@ const Wrapper = styled(LinearGradient)`
   flex-direction: column;
   justify-content: flex-end;
   height: ${height - getStatusBarHeight() - getBottomSpace()};
+`;
+
+const ReadMoreWrapper = styled(TouchableOpacity)`
+    width: ${width - 48}px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24;
 `;
 
 export default TopItem;

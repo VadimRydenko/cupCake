@@ -21,7 +21,7 @@ const ButtonItem = ({
   email,
 }) => {
   return (
-    <Button onPress={validateEmail}>
+    <Button onPress={()=>onPress()}>
       <Gradient
         colors={[lGColors.buttonStart, lGColors.buttonEnd]}
       >

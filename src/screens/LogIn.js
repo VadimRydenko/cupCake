@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ScrollView, SafeAreaView } from 'react-native';
 import BackgroundVideo from '../presentation/BackgroundVideo';
@@ -8,7 +8,7 @@ import KeyboardAvoid from '../presentation/KeyboardAvoid';
 import { signIn } from '../store/Auth/actions';
 
 
-class LogIn extends React.Component {
+class LogIn extends Component {
 
   constructor(props) {
     super(props);
@@ -30,6 +30,8 @@ class LogIn extends React.Component {
   };
 
   render() {
+    const { signIn, navigation } = this.props;
+    const { login, password }   = this.state;
     return (
       <SafeAreaView>
         <KeyboardAvoid>
@@ -39,10 +41,12 @@ class LogIn extends React.Component {
           >
             <BackgroundVideo />
             <TopItem 
-            signIn={this.props.signIn}
+            signIn={signIn}
             addLogin={this.addLogin}
             addPassword={this.addPassword}
-            email={this.state.login}
+            email={login}
+            password={password}
+            navigation={navigation}
             />
             <BottomItem />
           </ScrollView>
