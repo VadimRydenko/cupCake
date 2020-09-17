@@ -39,7 +39,7 @@ const appNavigator = ({ signIn }) => {
             gestureEnabled: true,
             gestureDirection: 'vertical',
             headerShown: false,
-            cardStyleInterpolator: CardStyleInterpolators.forRevealFromBottomAndroid,
+            // cardStyleInterpolator: CardStyleInterpolators.forRevealFromBottomAndroid,
             transitionSpec: {
               open: config,
               close: config,
@@ -47,7 +47,8 @@ const appNavigator = ({ signIn }) => {
           }}
         >
           <RootStack.Screen name="Home" component={LogIn} />
-          <RootStack.Screen name="PDF" component={PDFScreen} />
+          <RootStack.Screen 
+          name="PDF" component={PDFScreen} />
         </RootStack.Navigator>
       )}
     </NavigationContainer>
