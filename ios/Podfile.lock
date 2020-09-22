@@ -331,6 +331,8 @@ PODS:
     - React
   - RNScreens (2.10.1):
     - React
+  - RNVectorIcons (7.1.0):
+    - React
   - SDWebImage/Core (5.5.2)
   - SDWebImageWebPCoder (0.5.0):
     - libwebp (~> 1.0)
@@ -399,6 +401,7 @@ DEPENDENCIES:
   - RNPDF (from `../node_modules/react-native-view-pdf`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -494,6 +497,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -547,11 +552,12 @@ SPEC CHECKSUMS:
   RNPDF: f9dc9bac0b82da5f250df9bdd0d59b5993828fa2
   RNReanimated: 89f5e0a04d1dd52fbf27e7e7030d8f80a646a3fc
   RNScreens: b748efec66e095134c7166ca333b628cd7e6f3e2
+  RNVectorIcons: bc69e6a278b14842063605de32bec61f0b251a59
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
   SDWebImageWebPCoder: e7ae855f058e3dcae99696920b6a5d134e9dcddf
   Yoga: 3ebccbdd559724312790e7742142d062476b698e
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: f609b3208cd48883422b5653bd56d715b35cd64f
+PODFILE CHECKSUM: 32ef022a10ec0f6efd84c87d027e4b58a8fa3b89
 
 COCOAPODS: 1.8.4

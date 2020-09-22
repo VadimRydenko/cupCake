@@ -10,6 +10,7 @@ import BottomItem from '../presentation/BottomItem';
 import KeyboardAvoid from '../presentation/KeyboardAvoid';
 import { signIn } from '../store/Auth/actions';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const { height, width } = Dimensions.get('window');
 
@@ -43,6 +44,7 @@ class PDFScreen extends Component{
         toValue: 50,
         duration: 300,
         easing: Easing.linear,
+        useNativeDriver: false,
       },
     ).start();
   };
@@ -55,6 +57,7 @@ class PDFScreen extends Component{
         toValue: 1,
         duration: 1000,
         easing: Easing.linear,
+        useNativeDriver: false,
       },
     ).start();
   }
@@ -85,15 +88,15 @@ class PDFScreen extends Component{
           position: 'absolute',
           width: 50,
           height: 50,
-          // bottom: 50,
-          backgroundColor: 'magenta',
+          bottom: 70,
           right: this.moveRightValue,
           opacity: this.opacityValue,
         }}
         >
-           <BackButton 
-          onPress={() => this.props.navigation.goBack()}
-        />
+        <BackButton 
+          onPress={() => this.props.navigation.goBack()}>
+            <Icon name="times-circle" size={50}/>
+        </BackButton>
         </Animated.View>
       </SafeAreaView>
     );
@@ -106,9 +109,6 @@ const StyledPDFView = styled(PDFView)`
 `;
 
 const BackButton = styled(TouchableOpacity)`
-  background-color: red;
-  width: 50;
-  height: 50;
 `;
 
 export default PDFScreen;
