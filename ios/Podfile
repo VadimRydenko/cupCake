@@ -44,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'AwesomeProject' do
-  # Pods for AwesomeProject
+target 'cupCakeProject' do
+  # Pods for cupCakeProject
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -80,7 +80,7 @@ target 'AwesomeProject' do
   pod 'lottie-ios', :path => '../node_modules/lottie-ios'
   pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
 
-  target 'AwesomeProjectTests' do
+  target 'cupCakeProjectTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -97,10 +97,10 @@ target 'AwesomeProject' do
   end
 end
 
-target 'AwesomeProject-tvOS' do
-  # Pods for AwesomeProject-tvOS
+target 'cupCakeProject-tvOS' do
+  # Pods for cupCakeProject-tvOS
 
-  target 'AwesomeProject-tvOSTests' do
+  target 'cupCakeProject-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
