@@ -1,4 +1,4 @@
-export const validateEmail = () => {
+export const validateEmail = (email) => {
   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) {
     return console.log('valid');
   }

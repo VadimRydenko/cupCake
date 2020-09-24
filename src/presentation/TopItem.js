@@ -15,7 +15,7 @@ import { lGColors, colors, container, fonts } from '../core/styleguide';
 
 const { height, width } = Dimensions.get('window');
 
-const TopItem = ({ signIn, addLogin, addPassword, email, navigation }) => {
+const TopItem = ({ signIn, addLogin, addPassword, navigation, userSignIn }) => {
   return (
     <Wrapper colors={[lGColors.videoStart, lGColors.videoEnd]}>
       <MainIcon />
@@ -37,12 +37,12 @@ const TopItem = ({ signIn, addLogin, addPassword, email, navigation }) => {
       />
       <ButtonItem 
         onPress={signIn}
-        email={email}
+        userSignIn={userSignIn}
       />
       <ReadMoreWrapper
         onPress={() => navigation.navigate('PDF')}
       >
-        <ItemWithText 
+        <ItemWithText
           itemHeight={16}
           color={colors.gray}
           fontFamily="Inter-Regular"
