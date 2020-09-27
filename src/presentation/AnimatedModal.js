@@ -30,20 +30,20 @@ const AnimatedModal = ({ handleCloseAlert, animatedStyle }) => (
 
 const AnimatedModalWrapper = styled(Animated.View)`
   position: absolute;
-  width: 227;
-  height: 150;
-  alignSelf: center;
-  bottom: ${height / 2};
+  width: 227px;
+  height: 150px;
+  align-self: center;
+  bottom: ${height / 2}px;
   backgroundColor: ${colors.white};
-  borderRadius: 30;
-  justifyContent: flex-start;
-  alignItems: center;
+  border-radius: 30px;
+  justify-content: flex-start;
+  align-items: center;
 `;
 
 const ModalTextWrapper = styled(Animated.View)`
-  height: 125;
-  justifyContent: center;
-  alignItems: center;
+  height: 125px;
+  justify-content: center;
+  align-Items: center;
 `;
 
 const ModalBoldText = styled.Text`
@@ -51,10 +51,10 @@ const ModalBoldText = styled.Text`
 `;
 
 const CloseButton = styled(TouchableWithoutFeedback)`
-  border-radius: 20;
+  border-radius: 20px;
   background-color: ${colors.violet};
-  width: 50;
-  height: 50;
+  width: 50px;
+  height: 50px;
   justify-content: center;
   align-items: center;
 `;

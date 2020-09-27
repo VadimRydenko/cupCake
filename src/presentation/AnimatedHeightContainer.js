@@ -76,7 +76,7 @@ const AnimatedContainer = styled(Animated.View)`
 
 const TransparentButtonContainer = styled.View`
   width: ${width - container.marginHorizontal}px;
-  height: 30;
+  height: 30px;
   flex-direction: row;
   justify-content: space-between;
   padding-horizontal: 50px;

@@ -28,7 +28,6 @@ const Button = styled.View`
   justify-content: center;
   width: ${width - 48}px;
   border-radius: 10px;
-  /* background-color: blue; */
   margin: 10px;
   height: 40px;
 `;

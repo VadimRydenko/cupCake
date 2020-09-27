@@ -57,14 +57,14 @@ const Wrapper = styled(LinearGradient)`
   align-items: center;
   flex-direction: column;
   justify-content: flex-end;
-  height: ${height - getStatusBarHeight() - getBottomSpace()};
+  height: ${height - getStatusBarHeight() - getBottomSpace()}px;
 `;
 
 const ReadMoreWrapper = styled(TouchableOpacity)`
     width: ${width - 48}px;
     justify-content: center;
     align-items: center;
-    margin-bottom: 24;
+    margin-bottom: 24px;
 `;
 
 export default TopItem;

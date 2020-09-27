@@ -72,21 +72,15 @@ class PDFScreen extends Component {
           itemWidth={width}
         />
         {isLoading && (
-          <Spinner
-            style={{ position: 'absolute', alignSelf: 'center', marginTop: height / 2 }}
+          <StyledSpinner
             isVisible
             size={100}
             type="ThreeBounce"
             color="blue"
           />
         )}
-
-        <Animated.View
+        <AnimatedView
           style={{
-            position: 'absolute',
-            width: 50,
-            height: 50,
-            bottom: 70,
             right: this.moveRightValue,
             opacity: this.opacityValue,
           }}
@@ -96,18 +90,32 @@ class PDFScreen extends Component {
           >
             <Icon name="times-circle" size={50} />
           </BackButton>
-        </Animated.View>
+        </AnimatedView>
       </SafeAreaView>
     );
   }
 }
 
 const StyledPDFView = styled(PDFView)`
-  width: ${({ itemWidth }) => itemWidth};
-  height: ${({ itemHeight }) => itemHeight - 200};
+  width: ${({ itemWidth }) => itemWidth}px;
+  height: ${({ itemHeight }) => itemHeight - 200}px;
 `;
 
 const BackButton = styled(TouchableOpacity)`
 `;
+
+const StyledSpinner = styled(Spinner)`
+  position: absolute;
+  alignSelf: center;
+  marginTop: ${height / 2}px;
+`;
+
+const AnimatedView = styled(Animated.View)`
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  bottom: 70px;
+`;
+
 
 export default PDFScreen;

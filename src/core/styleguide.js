@@ -63,7 +63,7 @@ export const fonts = {
       fontFamily: 'Inter-Regular',
       fontSize: 12,
       letterSpacing: -0.2,
-      lineHeight: 1,
+      lineHeight: 14,
     },
   },
 };
