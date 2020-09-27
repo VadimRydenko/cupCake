@@ -11,6 +11,7 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -20,6 +21,7 @@ module.exports = {
   },
   plugins: [
     'react',
+    'jest',
   ],
   rules: {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
@@ -51,5 +53,11 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'dot-notation': 'off',
     "react/jsx-curly-brace-presence": 'off',
+  },
+  rules: {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/no-extraneous-dependencies": ["error",  {"devDependencies": true}],
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off",
   },
 };

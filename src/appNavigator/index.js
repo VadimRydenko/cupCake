@@ -2,36 +2,27 @@ import * as React from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import PDFScreen from '../screens/PDFScreen';
 
 import LogIn from '../screens/LogIn';
+import PDFScreen from '../screens/PDFScreen';
+
+import animationConfig from './navigationAnimateConfig';
+import screensNames from './screensNames';
 
 const RootStack = createStackNavigator();
 
 const Tab = createBottomTabNavigator();
-
-const config = {
-  animation: 'spring',
-  config: {
-    stiffness: 1000,
-    damping: 50,
-    mass: 3,
-    overshootClamping: false,
-    restDisplacementThreshold: 0.01,
-    restSpeedThreshold: 0.01,
-  },
-};
 
 const appNavigator = ({ signIn }) => {
   return (
     <NavigationContainer>
       {signIn ? (
         <Tab.Navigator>
-          <Tab.Screen name="SignIn" component={DetailScreen} />
-          <Tab.Screen name="Test" component={Test} />
-          <Tab.Screen name="Test2" component={Test2} />
+          <Tab.Screen name={screensNames.TEST} component={Test} />
+          <Tab.Screen name={screensNames.TEST2} component={Test2} />
+          <Tab.Screen name={screensNames.TEST3} component={Test3} />
         </Tab.Navigator>
       ) : (
         <RootStack.Navigator
@@ -39,35 +30,33 @@ const appNavigator = ({ signIn }) => {
             gestureEnabled: true,
             gestureDirection: 'vertical',
             headerShown: false,
-            // cardStyleInterpolator: CardStyleInterpolators.forRevealFromBottomAndroid,
             transitionSpec: {
-              open: config,
-              close: config,
+              open: animationConfig,
+              close: animationConfig,
             },
           }}
         >
-          <RootStack.Screen name="Home" component={LogIn} />
-          <RootStack.Screen 
-          name="PDF" component={PDFScreen} />
+          <RootStack.Screen name={screensNames.LOGIN} component={LogIn} />
+          <RootStack.Screen name={screensNames.PDF} component={PDFScreen} />
         </RootStack.Navigator>
       )}
     </NavigationContainer>
   ); 
 };
   
-const DetailScreen = () => {
+const Test = () => {
   return (
     <View style={{ flex: 1, backgroundColor: 'red' }} />
   );
 };
   
-const Test = () => {
+const Test2 = () => {
   return (
     <View style={{ flex: 1, backgroundColor: 'green' }} />
   );
 };
 
-const Test2 = () => {
+const Test3 = () => {
   return (
     <View style={{ flex: 1, backgroundColor: 'yellow' }} />
   );

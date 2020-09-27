@@ -1,36 +1,27 @@
-import React, { Component } from 'react';
-import { Image, Animated, StyleSheet, View, Dimensions } from 'react-native';
+import React from 'react';
+import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
-import LinearGradient from 'react-native-linear-gradient';
-
-import { lGColors } from '../core/styleguide';
+import { lGColors, colors } from '../core/styleguide';
 
 const { width } = Dimensions.get('window');
 
 const TextInput = ({
-  color,
-  fontFamily,
-  fontSize,
-  lineHeight,
-  letterSpacing,
-  text,
   placeholder,
   onChangeText,
-}) => {
-  return (
-    <Button>
-      <Input
-        colors={[lGColors.start, lGColors.end]}
-        fontFamily="Inter-SemiBold"
-        fontSize={17}
-        letterSpacing={-0.2}
-        placeholder={placeholder}
-        onChangeText={onChangeText}
-      />
-    </Button>
-  );
-};
+}) => (
+  <Button>
+    <Input
+      colors={[lGColors.start, lGColors.end]}
+      fontFamily="Inter-SemiBold"
+      fontSize={17}
+      letterSpacing={-0.2}
+      lineHeight={19}
+      placeholder={placeholder}
+      onChangeText={onChangeText}
+    />
+  </Button>
+);
 
 const Button = styled.View`
   align-items: center;
@@ -45,11 +36,11 @@ const Button = styled.View`
 const Input = styled.TextInput`
   border-color: white;
   border-width: 2px;
-  background-color: 'rgba(255, 255, 255, 0.6)';
+  background-color: ${colors.gray};
   height: 40px;
   width: 100%;
   border-radius: 10px;
-  color: ${({ color }) => color || 'white'};
+  color: ${({ color }) => color || colors.white};
   text-align: center;
   font-family: ${({ fontFamily }) => fontFamily};
   font-size: ${({ fontSize }) => fontSize}px;

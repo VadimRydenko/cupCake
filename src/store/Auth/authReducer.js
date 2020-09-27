@@ -5,10 +5,10 @@ const initialState = {
 };
 
 const authReducer = (state = initialState, action) => {
-  console.log(action, 'action');
   switch (action.type) {
     case SIGNIN:
-      return { ...state, 
+      return {
+        ...state,
         logIn: true,
       };
     default: return state;

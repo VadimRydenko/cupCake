@@ -7,29 +7,26 @@ import { colors } from '../core/styleguide';
 import LottieAnimation from './LottieAnimation';
 
 const { height } = Dimensions.get('window');
+const animationSrc = require('../assets/animation/13819-icon-error');
 
-const AnimatedModal = ({ handleCloseAlert, animatedStyle }) => {
-  return (
-    <>
-      <AnimatedModalWrapper style={animatedStyle}>
-        <ModalTextWrapper>
-          <LottieAnimation
-            animation={require('../assets/animation/13819-icon-error')}
-            animationHeight={50}
-            animationWidth={50}
-          />
-          <ModalBoldText>{'Oops'}</ModalBoldText>
-          <Text>{'Your password is incorrect'}</Text>
-        </ModalTextWrapper>
-        <CloseButton 
-          onPress={handleCloseAlert}
-        >
-          <Icon name="times" size={50} color={'white'} />
-        </CloseButton>
-      </AnimatedModalWrapper>
-    </>
-  );
-};
+const AnimatedModal = ({ handleCloseAlert, animatedStyle }) => (
+  <AnimatedModalWrapper style={animatedStyle}>
+    <ModalTextWrapper>
+      <LottieAnimation
+        animation={animationSrc}
+        animationHeight={50}
+        animationWidth={50}
+      />
+      <ModalBoldText>Oops</ModalBoldText>
+      <Text>Your password is incorrect</Text>
+    </ModalTextWrapper>
+    <CloseButton
+      onPress={handleCloseAlert}
+    >
+      <Icon name="times" size={50} color={colors.white} />
+    </CloseButton>
+  </AnimatedModalWrapper>
+);
 
 const AnimatedModalWrapper = styled(Animated.View)`
   position: absolute;
@@ -37,7 +34,7 @@ const AnimatedModalWrapper = styled(Animated.View)`
   height: 150;
   alignSelf: center;
   bottom: ${height / 2};
-  backgroundColor: white;
+  backgroundColor: ${colors.white};
   borderRadius: 30;
   justifyContent: flex-start;
   alignItems: center;

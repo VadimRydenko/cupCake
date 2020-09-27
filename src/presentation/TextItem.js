@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { colors } from '../core/styleguide';
 
 const TextItem = ({
   color,
@@ -23,7 +24,7 @@ const TextItem = ({
 };
 
 const Item = styled.Text`
-  color: ${({ color }) => color || 'white'};
+  color: ${({ color }) => color || colors.white};
   text-align: center;
   font-family: ${({ fontFamily }) => fontFamily};
   font-size: ${({ fontSize }) => fontSize}px;

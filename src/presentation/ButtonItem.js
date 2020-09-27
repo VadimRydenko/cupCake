@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import { Image, Animated, StyleSheet, View, Dimensions } from 'react-native';
+import React from 'react';
+import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 import { colors } from '../core/styleguide';
-import LinearGradient from 'react-native-linear-gradient';
 import { validateEmail } from '../core/func/validation';
 
 
 import TextItem from './TextItem';
-import { lGColors } from '../core/styleguide';
+
 
 const { width } = Dimensions.get('window');
 
@@ -21,19 +20,17 @@ const ButtonItem = ({
   onPress,
   email,
   userSignIn,
-}) => {
-  return (
-    <Button onPress={userSignIn}>
-      <TextItem
-        fontFamily="Inter-SemiBold"
-        fontSize={18}
-        lineHeight={24}
-        letterSpacing={-0.2}
-        text={'Sign In'}
-      />
-    </Button>
-  );
-};
+}) => (
+  <Button onPress={userSignIn}>
+    <TextItem
+      fontFamily="Inter-SemiBold"
+      fontSize={18}
+      lineHeight={24}
+      letterSpacing={-0.2}
+      text="Sign In"
+    />
+  </Button>
+);
 
 const Button = styled.TouchableOpacity`
   align-items: center;

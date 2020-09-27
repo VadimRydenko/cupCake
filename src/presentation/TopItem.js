@@ -11,49 +11,51 @@ import ItemWithText from './ItemWithText';
 import ButtonItem from './ButtonItem';
 import AnimatedHeightContainer from './AnimatedHeightContainer';
 
-import { lGColors, colors, container, fonts } from '../core/styleguide';
+import { lGColors, colors } from '../core/styleguide';
 
 const { height, width } = Dimensions.get('window');
 
-const TopItem = ({ signIn, addLogin, addPassword, navigation, userSignIn }) => {
-  return (
-    <Wrapper colors={[lGColors.videoStart, lGColors.videoEnd]}>
-      <MainIcon />
-      <Image
-        style={{ width: 200, height: 100 }}
-        source={require('../assets/icons/tt.png')}
-      />
+const imageSrc = require('../assets/icons/tt.png');
+
+const TopItem = ({
+  signIn, addLogin, addPassword, navigation, userSignIn,
+}) => (
+  <Wrapper colors={[lGColors.videoStart, lGColors.videoEnd]}>
+    <MainIcon />
+    <Image
+      style={{ width: 200, height: 100 }}
+      source={imageSrc}
+    />
+    <ItemWithText
+      itemHeight={102}
+      fontFamily="Inter-SemiBold"
+      fontSize={20}
+      lineHeight={34}
+      letterSpacing={-0.9}
+      text="Make cupcake better for you"
+    />
+    <AnimatedHeightContainer
+      addLogin={addLogin}
+      addPassword={addPassword}
+    />
+    <ButtonItem
+      onPress={signIn}
+      userSignIn={userSignIn}
+    />
+    <ReadMoreWrapper
+      onPress={() => navigation.navigate('PDF')}
+    >
       <ItemWithText
-        itemHeight={102}
-        fontFamily="Inter-SemiBold"
-        fontSize={20}
-        lineHeight={34}
-        letterSpacing={-0.9}
-        text={'Make cupcake better for you'}
+        itemHeight={16}
+        color={colors.gray}
+        fontFamily="Inter-Regular"
+        fontSize={12}
+        lineHeight={16}
+        text="Terms of use"
       />
-      <AnimatedHeightContainer 
-        addLogin={addLogin}
-        addPassword={addPassword}
-      />
-      <ButtonItem 
-        onPress={signIn}
-        userSignIn={userSignIn}
-      />
-      <ReadMoreWrapper
-        onPress={() => navigation.navigate('PDF')}
-      >
-        <ItemWithText
-          itemHeight={16}
-          color={colors.gray}
-          fontFamily="Inter-Regular"
-          fontSize={12}
-          lineHeight={16}
-          text={'Terms of use'}
-        />
-      </ReadMoreWrapper>
-    </Wrapper>
-  );
-};
+    </ReadMoreWrapper>
+  </Wrapper>
+);
 
 const Wrapper = styled(LinearGradient)`
   align-items: center;

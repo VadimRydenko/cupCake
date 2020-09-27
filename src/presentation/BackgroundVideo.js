@@ -2,18 +2,18 @@ import React from 'react';
 import styled from 'styled-components/native';
 import Video from 'react-native-video';
 
-const BackgroundVideo = () => {
-  return (
-    <VideoItem
-      source={require('../assets/video/cupcake.mp4')}
-      muted
-      repeat
-      resizeMode="cover"
-      rate={0.2}
-      ignoreSilentSwitch="obey"
-    />
-  );
-};
+const videoSrc = require('../assets/video/cupcake.mp4');
+
+const BackgroundVideo = () => (
+  <VideoItem
+    source={videoSrc}
+    muted
+    repeat
+    resizeMode="cover"
+    rate={0.2}
+    ignoreSilentSwitch="obey"
+  />
+);
 
 const VideoItem = styled(Video)`
    position: absolute;

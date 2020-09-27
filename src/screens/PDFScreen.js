@@ -1,20 +1,16 @@
-import React, { useState, useEffect, Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
 import styled from 'styled-components/native';
-import { SafeAreaView, View, StyleSheet, Dimensions, Animated, Image, Easing } from 'react-native';
+import {
+  SafeAreaView, Dimensions, Animated, Easing,
+} from 'react-native';
 import PDFView from 'react-native-view-pdf';
 import Spinner from 'react-native-spinkit';
-import BackgroundVideo from '../presentation/BackgroundVideo';
-import TopItem from '../presentation/TopItem';
-import BottomItem from '../presentation/BottomItem';
-import KeyboardAvoid from '../presentation/KeyboardAvoid';
-import { signIn } from '../store/Auth/actions';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const { height, width } = Dimensions.get('window');
 
-class PDFScreen extends Component{
+class PDFScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -25,9 +21,9 @@ class PDFScreen extends Component{
     this.opacityValue = new Animated.Value(0);
   }
 
-  componentDidMount () {
+  componentDidMount() {
     setTimeout(() => {
-      this.startAnim()
+      this.startAnim();
     }, 2000);
   }
 
@@ -35,7 +31,7 @@ class PDFScreen extends Component{
     this.move();
     this.animate();
   };
-  
+
   move = () => {
     this.moveRightValue.setValue(0);
     Animated.timing(
@@ -62,54 +58,56 @@ class PDFScreen extends Component{
     ).start();
   }
 
-  render(){
+  render() {
+    const { isLoading } = this.state;
+    const { navigation } = this.props;
     return (
       <SafeAreaView style={{ flex: 1, justifyContent: 'center' }}>
         <StyledPDFView
-          onLoad={() => this.setState({isLoading: false})}
+          onLoad={() => this.setState({ isLoading: false })}
           fadeInDuration={500}
-          resource={'RV.pdf'}
-          resourceType={'file'}
-          height={height}
-          width={width}
+          resource="RV.pdf"
+          resourceType="file"
+          itemHeight={height}
+          itemWidth={width}
         />
-        {this.state.isLoading && (
-          <Spinner 
-            style={{ position: 'absolute', alignSelf: 'center', marginTop: height / 2 }} 
-            isVisible 
-            size={100} 
-            type={'ThreeBounce'} 
-            color={'blue'}
+        {isLoading && (
+          <Spinner
+            style={{ position: 'absolute', alignSelf: 'center', marginTop: height / 2 }}
+            isVisible
+            size={100}
+            type="ThreeBounce"
+            color="blue"
           />
         )}
-       
-        <Animated.View 
-        style={{
-          position: 'absolute',
-          width: 50,
-          height: 50,
-          bottom: 70,
-          right: this.moveRightValue,
-          opacity: this.opacityValue,
-        }}
+
+        <Animated.View
+          style={{
+            position: 'absolute',
+            width: 50,
+            height: 50,
+            bottom: 70,
+            right: this.moveRightValue,
+            opacity: this.opacityValue,
+          }}
         >
-        <BackButton 
-          onPress={() => this.props.navigation.goBack()}>
-            <Icon name="times-circle" size={50}/>
-        </BackButton>
+          <BackButton
+            onPress={() => navigation.goBack()}
+          >
+            <Icon name="times-circle" size={50} />
+          </BackButton>
         </Animated.View>
       </SafeAreaView>
     );
-  };
-};
+  }
+}
 
 const StyledPDFView = styled(PDFView)`
-  width: ${({ width }) => width};
-  height: ${({ height }) => height - 200};
+  width: ${({ itemWidth }) => itemWidth};
+  height: ${({ itemHeight }) => itemHeight - 200};
 `;
 
 const BackButton = styled(TouchableOpacity)`
 `;
 
 export default PDFScreen;
-

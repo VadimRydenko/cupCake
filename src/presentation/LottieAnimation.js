@@ -2,7 +2,7 @@ import React from 'react';
 import { Animated } from 'react-native';
 import Animation from 'lottie-react-native';
 import styled from 'styled-components/native';
- 
+
 export default class LottieAnimation extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +10,7 @@ export default class LottieAnimation extends React.Component {
       progress: new Animated.Value(0),
     };
   }
- 
+
   componentDidMount() {
     this.runAnimation();
   }
@@ -26,7 +26,7 @@ export default class LottieAnimation extends React.Component {
       { iterations: -1 },
     ).start();
   }
- 
+
   render() {
     const { animation, animationHeight, animationWidth } = this.props;
     const { progress } = this.state;

@@ -1,50 +1,7 @@
 import React, { Component } from 'react';
-import { Image, Animated, StyleSheet, View } from 'react-native';
-import styled from 'styled-components/native';
+import { Animated, StyleSheet } from 'react-native';
 
-class ImageLoader extends Component {
-  state = {
-    opacity: new Animated.Value(0),
-  }
-
-  onLoad = () => {
-    Animated.timing(this.state.opacity, {
-      toValue: 1,
-      duration: 3000,
-      useNativeDriver: true,
-    }).start();
-  }
-
-  render() {
-    return (
-      <Animated.Image
-        onLoad={this.onLoad}
-        {...this.props}
-        style={[
-          {
-            opacity: this.state.opacity,
-            transform: [
-              {
-                scale: this.state.opacity.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [0.8, 1],
-                })
-              },
-            ],
-          },
-          this.props.style,
-        ]}
-      />
-    );
-  }
-}
-
-const MainIcon = (iconName) => (
-    <ImageLoader
-      style={styles.image}
-      source={require(`../assets/icons/cup2.png`)}
-    />
-);
+const imageSrc = require('../assets/icons/cup2.png');
 
 const styles = StyleSheet.create({
   image: {
@@ -53,5 +10,53 @@ const styles = StyleSheet.create({
     height: 100,
   },
 });
+
+class ImageLoader extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      opacity: new Animated.Value(0),
+    };
+  }
+
+  onLoad = () => {
+    const { opacity } = this.state;
+    Animated.timing(opacity, {
+      toValue: 1,
+      duration: 3000,
+      useNativeDriver: true,
+    }).start();
+  }
+
+  render() {
+    const { opacity } = this.state;
+    return (
+      <Animated.Image
+        onLoad={this.onLoad}
+        {...this.props}
+        style={[
+          {
+            opacity,
+            transform: [
+              {
+                scale: opacity.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0.8, 1],
+                }),
+              },
+            ],
+          },
+          styles.image,
+        ]}
+      />
+    );
+  }
+}
+
+const MainIcon = () => (
+  <ImageLoader
+    source={imageSrc}
+  />
+);
 
 export default MainIcon;

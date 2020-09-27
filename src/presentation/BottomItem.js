@@ -9,39 +9,39 @@ import { features } from '../core/const/features';
 
 const bottomHeaderText = ['All these features', 'are included in the', 'premium package'];
 
-const BottomItem = () => {
-  return (
-    <Wrapper>
-      <HeaderWrapper>
-        <ItemWithText
-          fontFamily="Inter-SemiBold"
-          fontSize={28}
-          letterSpacing={-0.9}
-          lineHeight={34}
-          text={bottomHeaderText}
-          color={colors.black}
+const BottomItem = () => (
+  <Wrapper>
+    <HeaderWrapper>
+      <ItemWithText
+        fontFamily="Inter-SemiBold"
+        fontSize={28}
+        letterSpacing={-0.9}
+        lineHeight={34}
+        text={bottomHeaderText}
+        color={colors.black}
+      />
+    </HeaderWrapper>
+    {features.map((feature) => {
+      const {
+        animation, header, description, animationWidth, animationHeight,
+      } = feature;
+      return (
+        <ItemWithTopIcon
+          key={header}
+          animation={animation}
+          header={header}
+          description={description}
+          animationWidth={animationWidth}
+          animationHeight={animationHeight}
         />
-      </HeaderWrapper>
-      {features.map((feature) => {
-        const { animation, header, description, animationWidth, animationHeight } = feature;
-        return (
-          <ItemWithTopIcon 
-            key={header}
-            animation={animation}
-            header={header}
-            description={description}
-            animationWidth={animationWidth}
-            animationHeight={animationHeight}
-          />
-        );
-      })}
-      
-    </Wrapper>
-  );
-};
+      );
+    })}
+
+  </Wrapper>
+);
 
 const Wrapper = styled.View`
-  background-color: white;
+  background-color: ${colors.white};
   align-items: center;
 `;
 
