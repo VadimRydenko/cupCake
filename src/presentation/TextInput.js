@@ -2,7 +2,7 @@ import React from 'react';
 import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
-import { lGColors, colors } from '../core/styleguide';
+import { lGColors, colors, fonts } from '../core/styleguide';
 
 const { width } = Dimensions.get('window');
 
@@ -13,10 +13,10 @@ const TextInput = ({
   <Button>
     <Input
       colors={[lGColors.start, lGColors.end]}
-      fontFamily="Inter-SemiBold"
-      fontSize={17}
-      letterSpacing={-0.2}
-      lineHeight={19}
+      fontFamily={fonts.INTER_SEMIBOLD.TINY.fontFamily}
+      fontSize={fonts.INTER_SEMIBOLD.TINY.fontSize}
+      letterSpacing={fonts.INTER_SEMIBOLD.TINY.letterSpacing}
+      lineHeight={fonts.INTER_SEMIBOLD.TINY.lineHeight}
       placeholder={placeholder}
       onChangeText={onChangeText}
     />

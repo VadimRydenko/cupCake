@@ -12,11 +12,8 @@ const ItemWithText = ({
   marginLeft,
   marginRight,
   color,
-  fontFamily,
-  fontSize,
-  lineHeight,
-  letterSpacing,
   text,
+  fontStyle,
 }) => (
   <TextItemWrapper
     itemWidth={itemWidth}
@@ -31,20 +28,14 @@ const ItemWithText = ({
         <TextItem
           key={item}
           color={color}
-          fontFamily={fontFamily}
-          fontSize={fontSize}
-          lineHeight={lineHeight}
-          letterSpacing={letterSpacing}
+          fontStyle={fontStyle}
           text={item}
         />
       ))
       : (
         <TextItem
           color={color}
-          fontFamily={fontFamily}
-          fontSize={fontSize}
-          lineHeight={lineHeight}
-          letterSpacing={letterSpacing}
+          fontStyle={fontStyle}
           text={text}
         />
       )}

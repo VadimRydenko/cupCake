@@ -4,12 +4,12 @@ import { colors } from '../core/styleguide';
 
 const TextItem = ({
   color,
-  fontFamily,
-  fontSize,
-  lineHeight,
-  letterSpacing,
   text,
+  fontStyle,
 }) => {
+  const {
+    fontFamily, fontSize, lineHeight, letterSpacing,
+  } = fontStyle;
   return (
     <Item
       color={color}

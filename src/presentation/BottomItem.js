@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import ItemWithText from './ItemWithText';
 import ItemWithTopIcon from './ItemWithTopIcon';
 
-import { colors } from '../core/styleguide';
+import { colors, fonts } from '../core/styleguide';
 import { features } from '../core/const/features';
 
 const bottomHeaderText = ['All these features', 'are included in the', 'premium package'];
@@ -13,10 +13,7 @@ const BottomItem = () => (
   <Wrapper>
     <HeaderWrapper>
       <ItemWithText
-        fontFamily="Inter-SemiBold"
-        fontSize={28}
-        letterSpacing={-0.9}
-        lineHeight={34}
+        fontStyle={fonts.INTER_SEMIBOLD.LARGE}
         text={bottomHeaderText}
         color={colors.black}
       />

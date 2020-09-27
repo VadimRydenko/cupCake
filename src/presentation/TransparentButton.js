@@ -3,7 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
 import TextItem from './TextItem';
-import { lGColors, colors } from '../core/styleguide';
+import { lGColors, colors, fonts } from '../core/styleguide';
 
 const TransparentButton = ({
   onPress,
@@ -16,10 +16,7 @@ const TransparentButton = ({
   >
     <TextItem
       colors={[lGColors.start, lGColors.end]}
-      fontFamily="Inter-Medium"
-      fontSize={20}
-      letterSpacing={-0.2}
-      lineHeight={20}
+      fontStyle={fonts.INTER_MEDIUM.MEDIUM}
       text={text}
     />
     {isSelected && <Border />}

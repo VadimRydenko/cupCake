@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
-import { colors } from '../core/styleguide';
+import { colors, fonts } from '../core/styleguide';
 import { validateEmail } from '../core/func/validation';
 
 
@@ -12,10 +12,6 @@ const { width } = Dimensions.get('window');
 
 const ButtonItem = ({
   color,
-  fontFamily,
-  fontSize,
-  lineHeight,
-  letterSpacing,
   text,
   onPress,
   email,
@@ -23,10 +19,7 @@ const ButtonItem = ({
 }) => (
   <Button onPress={userSignIn}>
     <TextItem
-      fontFamily="Inter-SemiBold"
-      fontSize={18}
-      lineHeight={24}
-      letterSpacing={-0.2}
+      fontStyle={fonts.INTER_SEMIBOLD.SMALL}
       text="Sign In"
     />
   </Button>

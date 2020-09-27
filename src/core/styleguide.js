@@ -15,51 +15,55 @@ export const container = {
   marginHorizontal: 48,
 };
 
-export const fontStyles = {
+export const fonts = {
   INTER_SEMIBOLD: {
-    fontFamily: 'Inter-SemiBold',
-    fontSize: {
-      LARGE: 28,
-      MEDIUM: 20,
-      SMAll: 19,
-      TINY: 17,
+    LARGE: {
+      fontFamily: 'Inter-SemiBold',
+      fontSize: 28,
+      letterSpacing: -0.9,
+      lineHeight: 34,
     },
-    letterSpacing: {
-      SMAll: -0.2,
-      TINY: -0.9,
+    MEDIUM: {
+      fontFamily: 'Inter-SemiBold',
+      fontSize: 20,
+      letterSpacing: -0.9,
+      lineHeight: 24,
     },
-    lineHeight: {
-      LARGE: 34,
-      MEDIUM: 24,
-      SMAll: 19,
+    SMALL: {
+      fontFamily: 'Inter-SemiBold',
+      fontSize: 19,
+      letterSpacing: -0.2,
+      lineHeight: 24,
+    },
+    TINY: {
+      fontFamily: 'Inter-SemiBold',
+      fontSize: 17,
+      letterSpacing: -0.24,
+      lineHeight: 19,
     },
   },
 
   INTER_MEDIUM: {
-    fontFamily: 'Inter-Medium',
-    fontSize: {
-      MEDIUM: 20,
-      SMAll: 15,
+    MEDIUM: {
+      fontFamily: 'Inter-Medium',
+      fontSize: 20,
+      letterSpacing: -0.2,
+      lineHeight: 20,
     },
-    letterSpacing: {
-      TINY: -0.2,
-    },
-    lineHeight: {
-      MEDIUM: 20,
-      SMAll: 18,
+    SMALL: {
+      fontFamily: 'Inter-Medium',
+      fontSize: 15,
+      letterSpacing: -0.2,
+      lineHeight: 18,
     },
   },
 
   INTER_REGULAR: {
-    fontFamily: 'Inter-Regular',
-    fontSize: {
-      SMAll: 12,
-    },
-    letterSpacing: {
-      TINY: -0.2,
-    },
-    lineHeight: {
-      MEDIUM: 1,
+    MEDIUM: {
+      fontFamily: 'Inter-Regular',
+      fontSize: 12,
+      letterSpacing: -0.2,
+      lineHeight: 1,
     },
   },
 };
