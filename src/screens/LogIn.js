@@ -1,6 +1,9 @@
+// @flow
 import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+// import { NavigationState, NavigationScreenProp } from 'react-navigation';
+// import type { Node } from 'react';
 import { ScrollView, SafeAreaView } from 'react-native';
 import BackgroundVideo from '../presentation/BackgroundVideo';
 import TopItem from '../presentation/TopItem';
@@ -10,7 +13,12 @@ import { signIn } from '../store/Auth/actions';
 import { validateEmail } from '../core/func/validation';
 import withAnimatedAlert from '../hocs/withAnimatedAlert';
 
-class LogIn extends Component {
+type State = {
+  login: string,
+  password: string,
+}
+
+class LogIn extends Component<Props, State> {
   constructor(props) {
     super(props);
 
@@ -30,8 +38,9 @@ class LogIn extends Component {
 
   userSignIn = () => {
     const { login } = this.state;
+    const { showModalAnimatedModal } = this.props;
     if (!validateEmail(login)) {
-      this.props.showModalAnimatedModal();
+      showModalAnimatedModal();
     }
   };
 

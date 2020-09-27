@@ -38,6 +38,7 @@ const TopItem = ({
     <ButtonItem
       onPress={signIn}
       userSignIn={userSignIn}
+      text="Sign In"
     />
     <ReadMoreWrapper
       onPress={() => navigation.navigate('PDF')}

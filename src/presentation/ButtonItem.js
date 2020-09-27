@@ -1,8 +1,10 @@
+// @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 import { colors, fonts } from '../core/styleguide';
-import { validateEmail } from '../core/func/validation';
+// import { validateEmail } from '../core/func/validation';
 
 
 import TextItem from './TextItem';
@@ -10,17 +12,15 @@ import TextItem from './TextItem';
 
 const { width } = Dimensions.get('window');
 
-const ButtonItem = ({
-  color,
-  text,
-  onPress,
-  email,
-  userSignIn,
-}) => (
+type foo = {
+  userSignIn: () => {},
+}
+
+const ButtonItem = ({ userSignIn, text }) :Node => (
   <Button onPress={userSignIn}>
     <TextItem
       fontStyle={fonts.INTER_SEMIBOLD.SMALL}
-      text="Sign In"
+      text={text}
     />
   </Button>
 );
