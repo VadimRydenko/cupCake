@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import type { Node } from 'react';
 import { connect } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
+import MainButton from './navigationButtons/mainButton';
 import LogIn from '../screens/LogIn';
 import PDFScreen from '../screens/PDFScreen';
 
@@ -19,10 +19,46 @@ const Tab = createBottomTabNavigator();
 const appNavigator = ({ signIn }) : Node => (
   <NavigationContainer>
     {signIn ? (
-      <Tab.Navigator>
-        <Tab.Screen name={screensNames.TEST} component={Test} />
-        <Tab.Screen name={screensNames.TEST2} component={Test2} />
-        <Tab.Screen name={screensNames.TEST3} component={Test3} />
+      <Tab.Navigator
+        tabBarOptions={{
+          style: {
+            borderTopLeftRadius: 20,
+            borderTopRightRadius: 20,
+            position: 'absolute',
+            height: 80,
+          },
+        }}
+      >
+        <Tab.Screen
+          name={screensNames.TEST}
+          component={Test}
+          options={{
+            tabBarLabel: ({ focused }) => focused ? <Text>Test</Text> : null,
+            tabBarIcon: ({ focused }) => (
+              <MainButton focused={focused} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name={screensNames.TEST2}
+          component={Test2}
+          options={{
+            tabBarLabel: ({ focused }) => focused ? <Text>Test2</Text> : null,
+            tabBarIcon: ({ focused }) => (
+              <MainButton focused={focused} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name={screensNames.TEST3}
+          component={Test3}
+          options={{
+            tabBarLabel: ({ focused }) => focused ? <Text>Test3</Text> : null,
+            tabBarIcon: ({ focused }) => (
+              <MainButton focused={focused} />
+            ),
+          }}
+        />
       </Tab.Navigator>
     ) : (
       <RootStack.Navigator

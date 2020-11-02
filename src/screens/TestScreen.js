@@ -131,4 +131,18 @@
 //   }
 // }
 
+// scale = () => {
+//     Animated.sequence([
+//         Animated.timing(this.buttonSize, {
+//             toValue: 2,
+//             duration: 200,
+//             useNativeDriver: false,
+//         }),
+//         Animated.timing(this.buttonSize, {
+//             toValue: 1,
+//             useNativeDriver: false,
+//         }),
+//     ]).start();
+// };
+
 // export default PDFScreen;
